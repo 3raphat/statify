@@ -1,6 +1,7 @@
 import { Box, Flex, Text, VStack, useColorModeValue } from '@chakra-ui/react'
 
 import Image from 'next/image'
+import NextLink from 'next/link';
 
 interface ArtistProps {
   index: number
@@ -12,6 +13,7 @@ const Artist = ({ index, artist }: ArtistProps) => {
 
   return (
     <Flex
+      as={NextLink}
       align='center'
       direction='column'
       h='full'
@@ -20,7 +22,9 @@ const Artist = ({ index, artist }: ArtistProps) => {
       fontSize={{ base: 'sm', md: 'md' }}
       _hover={{ bg: useColorModeValue('blackAlpha.50', 'whiteAlpha.100') }}
       cursor='pointer'
+      href={artist.external_urls.spotify}
       rounded='md'
+      target='_blank'
     >
       <VStack>
         <Text px={2} fontSize='xs' fontWeight='semibold' border='1px solid var(--chakra-colors-black)' rounded='full'>{`#${idx}`}</Text>

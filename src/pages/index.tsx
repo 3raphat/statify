@@ -1,4 +1,3 @@
-import { SegmentedControl, SegmentedControlItem } from '@/components/SegmentedControl'
 import {
   Box,
   Button,
@@ -17,6 +16,7 @@ import {
   useColorModeValue,
   useToast,
 } from '@chakra-ui/react'
+import { SegmentedControl, SegmentedControlItem } from '@/components/SegmentedControl'
 import { Volume, Volume1, Volume2, VolumeX } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -24,11 +24,11 @@ import AddToPlaylistCTA from '@/components/AddToPlaylist/AddToPlaylistCTA'
 import Artist from '@/components/Artist'
 import Layout from '@/components/Layout'
 import List from '@/components/List'
-import Track from '@/components/Track'
+import { NextSeo } from 'next-seo'
 import SelectedItemsContext from '@/context/SelectedItemsContext'
+import Track from '@/components/Track'
 import VolumeContext from '@/context/VolumeContext'
 import fetcher from '@/libs/fetcher'
-import { NextSeo } from 'next-seo'
 import useSWR from 'swr'
 
 export default function Home() {
@@ -62,15 +62,7 @@ export default function Home() {
     setTimeRange(e.target.value)
   }
   const handleAddToList = (item: any) => {
-    if (type !== 'tracks') {
-      toast({
-        title: 'Oops!',
-        description: `You can only add tracks to the List`,
-        status: 'error',
-        isClosable: true,
-      })
-      return
-    }
+    if (type !== 'tracks') return
     if (list.length >= 100) {
       toast({
         title: 'Oops!',
