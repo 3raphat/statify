@@ -6,17 +6,35 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint . --fix"
+  },
+  "repository": {
+    "url": "https://github.com/3raphat/statify"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@types/node": "18.15.11",
+    "@types/pretty-ms": "^5.0.1",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
+    "@typescript-eslint/parser": "^5.57.1",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
+    "eslint-plugin-chakra-ui": "^0.7.6",
+    "framer-motion": "^10.10.0",
+    "lucide-react": "^0.129.0",
     "next": "13.2.4",
+    "next-auth": "^4.20.1",
+    "next-seo": "^6.0.0",
+    "pretty-ms": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.3"
+    "react-icons": "^4.8.0",
+    "swr": "^2.1.2",
+    "typescript": "5.0.3",
+    "use-sound": "^4.0.1"
   }
 }
