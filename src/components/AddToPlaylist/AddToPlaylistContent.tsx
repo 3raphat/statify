@@ -1,9 +1,10 @@
-import SelectedItemsContext from '@/context/SelectedItemsContext'
-import fetcher from '@/libs/fetcher'
 import { Box, Button, HStack, Select, Stack, Text, useToast } from '@chakra-ui/react'
 import { useContext, useEffect, useState } from 'react'
-import useSWR from 'swr'
+
 import CreatePlaylistCTA from '../CreatePlaylist/CreatePlaylistCTA'
+import SelectedItemsContext from '@/context/SelectedItemsContext'
+import fetcher from '@/libs/fetcher'
+import useSWR from 'swr'
 
 interface AddToPlaylistContentProps {}
 
@@ -47,7 +48,7 @@ const AddToPlaylistContent = ({}: AddToPlaylistContentProps) => {
         <Text as='span' fontWeight='bold'>
           {items.length}{' '}
         </Text>
-        items
+        {items.length === 1 ? 'item' : 'items'}
       </Text>
       <HStack>
         <Select
