@@ -4,7 +4,19 @@ const SEO = {
   titleTemplate: '%s | Statify',
   defaultTitle: 'Statify',
   description: 'Get to know your Spotify listening habits and manage your playlists',
-  canonical: 'http://localhost:3000',
+  canonical: 'https://statify.3raphat.ga',
+  openGraph: {
+    url: 'https://statify.3raphat.ga',
+    title: 'Statify',
+    description: 'Get to know your Spotify listening habits and manage your playlists',
+    images: [
+      {
+        url: 'https://statify.3raphat.ga/og.png',
+        alt: 'Statify og image',
+      },
+    ],
+    siteName: 'Statify',
+  },
   additionalLinkTags: [
     {
       rel: 'icon',
