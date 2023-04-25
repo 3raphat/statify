@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 
 import CreatePlaylistCTA from '../CreatePlaylist/CreatePlaylistCTA'
 import SelectedItemsContext from '@/context/SelectedItemsContext'
-import fetcher from '@/libs/fetcher'
+import fetcher from '@/lib/fetcher'
 import useSWR from 'swr'
 
 interface AddToPlaylistContentProps {}

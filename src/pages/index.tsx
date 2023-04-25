@@ -28,7 +28,7 @@ import { NextSeo } from 'next-seo'
 import SelectedItemsContext from '@/context/SelectedItemsContext'
 import Track from '@/components/Track'
 import VolumeContext from '@/context/VolumeContext'
-import fetcher from '@/libs/fetcher'
+import fetcher from '@/lib/fetcher'
 import useSWR from 'swr'
 
 export default function Home() {

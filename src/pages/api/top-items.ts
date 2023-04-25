@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { getSession } from 'next-auth/react'
-import { getTopItems } from '@/libs/spotify'
+import { getTopItems } from '@/lib/spotify'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { access_token } = (await getSession({ req })) as {
