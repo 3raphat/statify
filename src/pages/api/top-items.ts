@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { getSession } from 'next-auth/react'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { getServerSession } from 'next-auth'
 import { getTopItems } from '@/lib/spotify'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { access_token } = (await getSession({ req })) as {
+  const session = await getServerSession(req, res, authOptions) as {
     access_token: string
   }
 
@@ -12,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     type: string
     time_range: string
   }
-  const response = await getTopItems(access_token, type, time_range)
+  const response = await getTopItems(session.access_token, type, time_range)
   const { items } = await response.json()
 
   return res.status(200).json(items)

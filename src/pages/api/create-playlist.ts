@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { getSession } from 'next-auth/react'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { createPlaylist } from '@/lib/spotify'
+import { getServerSession } from 'next-auth'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { access_token } = (await getSession({ req })) as {
+  const session = await getServerSession(req, res, authOptions) as {
     access_token: string
   }
 
@@ -15,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     name: string
     description: string
   }
-  await createPlaylist(access_token, user_id, name, description)
+  await createPlaylist(session.access_token, user_id, name, description)
 
   return res.status(200).json({ message: 'Success' })
 }

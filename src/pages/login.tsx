@@ -12,9 +12,10 @@ const Login = () => {
   const toast = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const loginWithSpotify = async () => {
+    setIsLoading(true)
     try {
-      setIsLoading(true)
       await signIn('spotify', { callbackUrl: '/' })
+      setIsLoading(false)
     } catch (error) {
       console.log(error)
       toast({
@@ -23,8 +24,7 @@ const Login = () => {
         status: 'error',
         isClosable: true,
       })
-    } finally {
-      setTimeout(() => setIsLoading(false), 1000)
+      setIsLoading(false)
     }
   }
   return (
