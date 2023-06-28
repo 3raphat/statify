@@ -9,7 +9,7 @@ import theme from '@/styles/theme'
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <>
-      <SessionProvider>
+      <SessionProvider session={session}>
         <ChakraProvider theme={theme}>
         <DefaultSeo {...SEO} />
           <Component {...pageProps} />
